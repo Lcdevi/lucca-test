@@ -21,14 +21,16 @@
             <div class="messages-temp">
                 <div class="messages">
                     <div ng-repeat="message in messages">
-                        <p class="infos-message"><b>{{message.author}}</b> {{message.time | date:'yyyy-MM-dd HH:mm:ss Z'}}</p>
                         <img ng-src="{{message.img}}" height="100px" class="img-chat" ng-class="{left:message.me}">
-                        <p class="text-message">{{message.message}}</p>
+                        <div class="msg-wrap">
+                            <p class="infos-message"><b>{{message.author}}</b> {{message.time | date:'yyyy-MM-dd HH:mm:ss Z'}}</p>
+                            <p class="text-message">{{message.message}}</p>
+                        </div>
                     </div>
                 </div>
                 <div class="container-temp" ng-if="messageInput">
                     <div ng-class="{show:messageInput}">
-                        <img ng-src="{{messageInput.img}}">
+                        <!-- <img ng-src="{{messageInput.img}}"> -->
                         <p>{{messageInput.author}} écrit ...</p>
                     </div>
                 </div>
@@ -36,7 +38,10 @@
             <div id="input-msg">
                 <form ng-submit="sendMessage()">
                     <input placeholder="Entrez votre message ici..." ng-model="currentMessage" ng-change="updateInput()">
-                    <button>Envoyer</button>
+                    <button>
+                        <img src="./assets/Send 1.svg" alt="blue arrow">
+                        Envoyer
+                    </button>
                 </form>
             </div>
         </div>

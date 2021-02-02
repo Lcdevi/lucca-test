@@ -86,4 +86,5 @@ chatApp.controller('ChatController',
         })
       }
 
+
 }]);
