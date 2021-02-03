@@ -13,33 +13,40 @@
 <body>
     <div class="mainBody" ng-controller="ChatController">
         <div class="header">
-            <!-- <img src="./assets/Jumping CC.svg" width="100px"> -->
-            <img src="./assets/Jumping CC.svg" alt="Logo Lucca">
-            <h1>Messagerie Lucca</h1>
-        </div>
-        <div class="content-page">
+            <div id="logo-part">
+                <img src="./assets/Jumping CC.svg" alt="Logo Lucca" id="logo">
+                <h1>Messagerie Lucca</h1>
+            </div>  
             <div id="title">
                 <h2>Conversation avec : {{name}}</h2>
-                <img src="{{img}}" alt="">
+                <img src="{{img}}" alt="" class="conversation-img">
             </div>
-            <div class="container-temp" ng-if="messageInput">
-                <div ng-class="{show:messageInput}">
-                    <!-- <img ng-src="{{messageInput.img}}"> -->
-                    <p>{{messageInput.author}} écrit</p>
-                    <div class="dot-flashing"></div>
+
+        </div>
+        <div class="content-page">
+            <!-- <div id="title">
+                <h2>Conversation avec : {{name}}</h2>
+                <img src="{{img}}" alt="">
+            </div> -->
+            <div id="div-dots">
+                <div class="container-temp" ng-if="messageInput">
+                    <div ng-class="{show:messageInput}">
+                        <p>{{messageInput.author}} écrit</p>
+                        <div class="dot-flashing"></div>
+                    </div>
                 </div>
             </div>
             <div class="messages-temp">
                 <div class="messages">
                     <div class="commun" ng-repeat="message in messages">
-                        <p class="infos-message {{message.classP}}">le {{message.time | date:'dd-MM-yyyy'}} à {{message.time | date:'HH:mm'}}</p>
+                        <p class="{{message.classP}}">le {{message.time | date:'dd-MM-yyyy'}} à {{message.time | date:'HH:mm'}}</p>
                         <div class="message-text-img {{message.class}}">
                             <div class="img-author">
                                 <img ng-src="{{message.img}}" class="img-chat" ng-class="{left:message.me}" alt="profile picture">
                                 <h4>{{message.author}}</h4>
                             </div>
                             <div class="msg-wrap {{message.author}}">
-                                <p class="text-message">{{message.message}}</p>
+                                <p>{{message.message}}</p>
                             </div>
                         </div>
                     </div>

@@ -1,5 +1,11 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Ruda:wght@400;700;900&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+
+/**
+ * =======================================================================
+ * INITIAL VALUES
+ * =======================================================================
+ */
 
 *, ::after, ::before {
     margin: 0;
@@ -20,7 +26,6 @@ html {
     background-color: var(--light-blue);
 }
 
-/* style initial */
 body > div.mainBody{
     /* border: 1px solid red; */
     width: 100%;
@@ -31,17 +36,56 @@ body > div.mainBody{
     display: flex;
 }
 
+/**
+ * =======================================================================
+ * PART : HEADER
+ * =======================================================================
+ */
+
+ .header {
+    background-color: var(--green);
+    height:56px; 
+    width: 100%;
+    display: flex;
+    position: fixed;
+    z-index: 1;
+    justify-content: space-between;
+}
+.header #logo{
+    /* border: 1px solid yellow; */
+    width: 25px;
+    margin: 0 0 0 48px;
+}
+.header h1 {
+    /* border: 1px solid red; */
+    color: white;
+    font-size: 18px;
+    padding: 0 26px;
+}
+#logo-part {
+    display: flex;
+    align-items: center;
+}
+
+/**
+ * =======================================================================
+ * PART : TITLE
+ * =======================================================================
+ */
+
 #title {
     /* border: 1px solid green; */
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 18px 0 18px 0;
+    margin: 0 48px 0 0;
 }
 
 #title h2 {
-    color: var(--green);
+    /* color: var(--green); */
     font-size: 16px;
+    color: white;
+    font-weight: lighter;
 }
 
 #title img {
@@ -52,10 +96,26 @@ body > div.mainBody{
     box-shadow: 0px 0px 8px 1px rgba(0, 102, 102, 0.38);
 }
 
-div.container-temp img{
-    /* border: 1px solid blueviolet; */
-    float:left;
-    height: 50px;
+.conversation-img {
+    width: 44px;
+    height: 44px;
+    border-radius: 50px;
+    margin: 0 0 0 12px;
+    box-shadow: 0px 0px 8px 1px rgba(0, 102, 102, 0.38);
+}
+
+/**
+ * =======================================================================
+ * PART : DOTS
+ * =======================================================================
+ */
+
+#div-dots {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0 0 0;
 }
 
 div.container-temp p{
@@ -64,53 +124,62 @@ div.container-temp p{
     font-size: 14px;
     font-weight: 700;
 }
-
 .show {
     /* border: 1px solid yellow; */
     display: flex;
     align-items: center;
     justify-content: center;
 }
+.dot-flashing {
+    position: relative;
+    width: 6px;
+    height: 6px;
+    border-radius: 5px;
+    animation: dotFlashing 1s infinite linear alternate;
+    animation-delay: .5s;
+  }
+  
+  .dot-flashing::before, .dot-flashing::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+  }
+  
+  .dot-flashing::before {
+    left: -15px;
+    width: 6px;
+    height: 6px;
+    border-radius: 5px;
+    animation: dotFlashing 1s infinite alternate;
+    animation-delay: 0s;
+  }
+  
+  .dot-flashing::after {
+    left: 15px;
+    width: 6px;
+    height: 6px;
+    border-radius: 5px;
+    animation: dotFlashing 1s infinite alternate;
+    animation-delay: 1s;
+  }
+  
+  @keyframes dotFlashing {
+    0% {
+      background-color: var(--green);
+    }
+    50%,
+    100% {
+      background-color: var(--light-blue);
+    }
+  }
 
-.msg-wrap {
-    /* border: 1px solid gold; */
-    padding: 40px;
-    width: 680px;
-}
-
-
-/* style test design */
-.header {
-    background-color: var(--green);
-    height:56px; 
-    width: 100%;
-    display: flex;
-    position: fixed;
-    z-index: 1;
-}
-
-
-.header img{
-    /* border: 1px solid yellow; */
-    width: 25px;
-    margin: 0 0 0 48px;
-}
-
-.header h1 {
-    /* border: 1px solid red; */
-    color: white;
-    font-size: 22px;
-    display: flex;
-    align-items: center;
-    padding: 0 26px;
-}
-
-h4 {
-    font-size: 14px;
-    color: var(--green);
-}
-
-.content-page {
+/**
+ * =======================================================================
+ * PART : MESSAGES
+ * =======================================================================
+ */
+ .content-page {
     /* border: 3px solid magenta; */
     position:absolute; 
     top:56px; 
@@ -119,7 +188,15 @@ h4 {
     height: calc(100% - 142px); 
     overflow:auto;
 }
-
+ .msg-wrap {
+    /* border: 1px solid gold; */
+    padding: 40px;
+    width: 680px;
+}
+h4 {
+    font-size: 14px;
+    color: var(--green);
+}
 .messages-temp {
     /* border: 1px solid red; */
     margin: 40px 0 80px 0;
@@ -130,74 +207,8 @@ h4 {
     width: 850px; 
     margin:auto;
 }
-
-.messages > div {
-    /* border: 1px solid crimson; */
-}
-
-.infos-message {
-}
-
-.text-message {
-}
-
-
-
-/* input message */
-#input-msg {
-    /* border: 2px solid crimson; */
-    padding: 18px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    bottom: 0;
-    background-color: #D9EFF7;
-    width: 100%;
-    box-shadow: 0px 28px 15px 31px rgba(0, 102, 102, 0.38);
-}
-
-#input-msg ::placeholder {
-    font-size: 12px;
-    color: rgba(0,0,0, .3);
-}
-
-#input-msg input {
-    border: none;
-    width: 100%;
-    margin: 10px 30px;
-}
-
-#input-msg form {
-    /* border: 1px solid yellow; */
-    background-color: white;
-    border-radius: 29px;
-    width: 750px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-}
-
-#input-msg button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--blue);
-    margin: 0 25px 0 0;
-    background-color: white;
-    border: none;
-    cursor: pointer;
-}
-
-#input-msg button img {
-    margin: 0 10px 0 0;
-}
-
-.mystyle {
-    background-color: red;
-}
-
 .Utilisateur {
+    /* border: 1px solid red; */
     background-color: var(--green);
     color: white;
     border-radius: 14px;
@@ -215,12 +226,11 @@ h4 {
     /* border: 1px solid crimson; */
     display: flex;
     flex-direction: column;
-    margin: 70px 0;
+    margin: 40px 0;
 }
-
 .text-ope {
+    /* border: 1px solid red; */
     margin: 0 80px 0 0;
-
 }
 
 .text-user {
@@ -228,7 +238,6 @@ h4 {
     display: flex;
     margin: 0 0 0 80px;
 }
-
 .message-text-img {
     /* border: 2px solid pink; */
     display: flex;
@@ -270,55 +279,52 @@ h4 {
     width: 100px;
     align-items: center;
 }
-
-
 /**
- * ==============================================
- * Dot Flashing
- * ==============================================
+ * =======================================================================
+ * PART : INPUT
+ * =======================================================================
  */
 
-
-.dot-flashing {
-  position: relative;
-  width: 6px;
-  height: 6px;
-  border-radius: 5px;
-  animation: dotFlashing 1s infinite linear alternate;
-  animation-delay: .5s;
+ #input-msg {
+    /* border: 2px solid crimson; */
+    padding: 18px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    background-color: #D9EFF7;
+    width: 100%;
+    box-shadow: 0px 28px 15px 31px rgba(0, 102, 102, 0.38);
 }
-
-.dot-flashing::before, .dot-flashing::after {
-  content: '';
-  display: inline-block;
-  position: absolute;
-  top: 0;
+#input-msg ::placeholder {
+    font-size: 12px;
+    color: rgba(0,0,0, .3);
 }
-
-.dot-flashing::before {
-  left: -15px;
-  width: 6px;
-  height: 6px;
-  border-radius: 5px;
-  animation: dotFlashing 1s infinite alternate;
-  animation-delay: 0s;
+#input-msg input {
+    border: none;
+    width: 100%;
+    margin: 10px 30px;
 }
-
-.dot-flashing::after {
-  left: 15px;
-  width: 6px;
-  height: 6px;
-  border-radius: 5px;
-  animation: dotFlashing 1s infinite alternate;
-  animation-delay: 1s;
+#input-msg form {
+    /* border: 1px solid yellow; */
+    background-color: white;
+    border-radius: 29px;
+    width: 750px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
 }
-
-@keyframes dotFlashing {
-  0% {
-    background-color: var(--green);
-  }
-  50%,
-  100% {
-    background-color: var(--light-blue);
-  }
+#input-msg button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--blue);
+    margin: 0 25px 0 0;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+#input-msg button img {
+    margin: 0 10px 0 0;
 }

@@ -6,6 +6,8 @@ chatApp.controller('ChatController',
     function($scope, $http, $timeout) {
 
       // Déclaration des 2 users
+      // Ajout de "class" et "classP" pour modifier le CSS pour différencier User et Operator
+
       var USER = {
         imgLong : './assets/_MG_9359.jpg',
         img : '9359.jpg',
@@ -29,9 +31,9 @@ chatApp.controller('ChatController',
       $scope.messageInput = null;
       // Le contenu de l'input 
       $scope.currentMessage = ''; 
-      // variables nom interlocuteur
+      // Nom interlocuteur pour la partie #title
       $scope.name = OPERATOR.name;
-      // img interlocuteur
+      // Img interlocuteur pour la partie #title
       $scope.img = './assets/_MG_' + OPERATOR.img;
       
 
