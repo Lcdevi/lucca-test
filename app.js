@@ -11,7 +11,8 @@ chatApp.controller('ChatController',
         img : '9359.jpg',
         name : 'Utilisateur',
         // class : 'user',
-        class : 'text-user'
+        class : 'text-user',
+        classP : 'p-reverse-user'
       };
 
       var OPERATOR = {
@@ -19,7 +20,8 @@ chatApp.controller('ChatController',
         img : '9428.jpg',
         name : 'Opératrice',
         // class : 'operatrice',
-        class: 'text-ope'
+        class: 'text-ope',
+        classP: 'p-reverse-ope'
 
       }
 
@@ -39,7 +41,8 @@ chatApp.controller('ChatController',
           $scope.messageInput ={
             author: USER.name,
             img : USER.imgLong,
-            class : USER.class
+            class : USER.class,
+            classP : USER.classP
           } 
         }else if(size === 0){
           $scope.messageInput = null;
@@ -61,7 +64,8 @@ chatApp.controller('ChatController',
             $scope.messageInput = {
               author: OPERATOR.name,
               img : OPERATOR.imgLong,
-              class : OPERATOR.class
+              class : OPERATOR.class,
+              classP : OPERATOR.classP
             };
             $http({
               method: 'GET',
@@ -90,7 +94,8 @@ chatApp.controller('ChatController',
           message: message,
           img : './assets/_MG_'+ (me ? USER.img : OPERATOR.img),
           me: me,
-          class: me ? USER.class : OPERATOR.class
+          class: me ? USER.class : OPERATOR.class,
+          classP: me ? USER.classP : OPERATOR.classP
         })
       }
 

@@ -18,22 +18,31 @@
             <h1>Messagerie Lucca</h1>
         </div>
         <div class="content-page">
+            <div class="container-temp" ng-if="messageInput">
+                <div ng-class="{show:messageInput}">
+                    <!-- <img ng-src="{{messageInput.img}}"> -->
+                    <p>{{messageInput.author}} écrit ...</p>
+                    <div class="stage">
+                        <div class="dot-flashing"></div>
+                    </div>
+                </div>
+            </div>
             <div class="messages-temp">
                 <div class="messages">
-                    <div class="{{message.author}}" ng-repeat="message in messages">
-                        <img ng-src="{{message.img}}" height="100px" class="img-chat" ng-class="{left:message.me}">
-                        <div class="msg-wrap {{message.class}}">
-                            <p class="infos-message"><b>{{message.author}}</b> {{message.time | date:'yyyy-MM-dd HH:mm:ss Z'}}</p>
-                            <p class="text-message">{{message.message}}</p>
+                    <div class="commun" ng-repeat="message in messages">
+                        <p class="infos-message {{message.classP}}">{{message.time | date:'dd-MM-yyyy'}} à {{message.time | date:'HH:mm'}}</p>
+                        <div class="message-text-img {{message.class}}">
+                            <div class="img-author">
+                                <img ng-src="{{message.img}}" height="100px" class="img-chat" ng-class="{left:message.me}">
+                                <h4>{{message.author}}</h4>
+                            </div>
+                            <div class="msg-wrap {{message.author}}">
+                                <p class="text-message">{{message.message}}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="container-temp" ng-if="messageInput">
-                    <div ng-class="{show:messageInput}">
-                        <!-- <img ng-src="{{messageInput.img}}"> -->
-                        <p>{{messageInput.author}} écrit ...</p>
-                    </div>
-                </div>
+
             </div>
             <div id="input-msg">
                 <form ng-submit="sendMessage()">
