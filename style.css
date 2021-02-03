@@ -31,13 +31,25 @@ body > div.mainBody{
     display: flex;
 }
 
-
-
-div.container-temp{
+#title {
     /* border: 1px solid green; */
-    width:500px; 
-    margin:auto;
-    background-color: var(--light-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 18px 0 18px 0;
+}
+
+#title h2 {
+    color: var(--green);
+    font-size: 16px;
+}
+
+#title img {
+    width: 44px;
+    height: 44px;
+    border-radius: 50px;
+    margin: 0 0 0 12px;
+    box-shadow: 0px 0px 8px 1px rgba(0, 102, 102, 0.38);
 }
 
 div.container-temp img{
@@ -47,8 +59,17 @@ div.container-temp img{
 }
 
 div.container-temp p{
-    width:400px;
-    background-color: var(--light-blue);
+    margin: 0 30px 0 0;
+    color: var(--green);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.show {
+    /* border: 1px solid yellow; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .msg-wrap {
@@ -92,10 +113,10 @@ h4 {
 .content-page {
     /* border: 3px solid magenta; */
     position:absolute; 
-    top:80px; 
+    top:56px; 
     left:0; 
     width:100%; 
-    height: calc(100% - 180px); 
+    height: calc(100% - 142px); 
     overflow:auto;
 }
 
@@ -106,7 +127,7 @@ h4 {
 
 .messages {
     /* border: 2px solid purple; */
-    width: 800px; 
+    width: 850px; 
     margin:auto;
 }
 
@@ -251,39 +272,18 @@ h4 {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 /**
  * ==============================================
  * Dot Flashing
  * ==============================================
  */
 
-  .stage {
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-  }
-
 
 .dot-flashing {
   position: relative;
-  width: 10px;
-  height: 10px;
+  width: 6px;
+  height: 6px;
   border-radius: 5px;
-  /* background-color: #9880ff; */
-  /* color: red; */
   animation: dotFlashing 1s infinite linear alternate;
   animation-delay: .5s;
 }
@@ -297,22 +297,18 @@ h4 {
 
 .dot-flashing::before {
   left: -15px;
-  width: 10px;
-  height: 10px;
+  width: 6px;
+  height: 6px;
   border-radius: 5px;
-  /* background-color: #9880ff; */
-  /* color: #9880ff; */
   animation: dotFlashing 1s infinite alternate;
   animation-delay: 0s;
 }
 
 .dot-flashing::after {
   left: 15px;
-  width: 10px;
-  height: 10px;
+  width: 6px;
+  height: 6px;
   border-radius: 5px;
-  /* background-color: #9880ff; */
-  /* color: #9880ff; */
   animation: dotFlashing 1s infinite alternate;
   animation-delay: 1s;
 }

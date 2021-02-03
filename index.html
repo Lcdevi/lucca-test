@@ -18,22 +18,24 @@
             <h1>Messagerie Lucca</h1>
         </div>
         <div class="content-page">
+            <div id="title">
+                <h2>Conversation avec : {{name}}</h2>
+                <img src="{{img}}" alt="">
+            </div>
             <div class="container-temp" ng-if="messageInput">
                 <div ng-class="{show:messageInput}">
                     <!-- <img ng-src="{{messageInput.img}}"> -->
-                    <p>{{messageInput.author}} écrit ...</p>
-                    <div class="stage">
-                        <div class="dot-flashing"></div>
-                    </div>
+                    <p>{{messageInput.author}} écrit</p>
+                    <div class="dot-flashing"></div>
                 </div>
             </div>
             <div class="messages-temp">
                 <div class="messages">
                     <div class="commun" ng-repeat="message in messages">
-                        <p class="infos-message {{message.classP}}">{{message.time | date:'dd-MM-yyyy'}} à {{message.time | date:'HH:mm'}}</p>
+                        <p class="infos-message {{message.classP}}">le {{message.time | date:'dd-MM-yyyy'}} à {{message.time | date:'HH:mm'}}</p>
                         <div class="message-text-img {{message.class}}">
                             <div class="img-author">
-                                <img ng-src="{{message.img}}" height="100px" class="img-chat" ng-class="{left:message.me}">
+                                <img ng-src="{{message.img}}" class="img-chat" ng-class="{left:message.me}" alt="profile picture">
                                 <h4>{{message.author}}</h4>
                             </div>
                             <div class="msg-wrap {{message.author}}">

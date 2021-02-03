@@ -10,7 +10,6 @@ chatApp.controller('ChatController',
         imgLong : './assets/_MG_9359.jpg',
         img : '9359.jpg',
         name : 'Utilisateur',
-        // class : 'user',
         class : 'text-user',
         classP : 'p-reverse-user'
       };
@@ -19,7 +18,6 @@ chatApp.controller('ChatController',
         imgLong : './assets/_MG_9428.jpg',
         img : '9428.jpg',
         name : 'Opératrice',
-        // class : 'operatrice',
         class: 'text-ope',
         classP: 'p-reverse-ope'
 
@@ -31,7 +29,13 @@ chatApp.controller('ChatController',
       $scope.messageInput = null;
       // Le contenu de l'input 
       $scope.currentMessage = ''; 
+      // variables nom interlocuteur
+      $scope.name = OPERATOR.name;
+      // img interlocuteur
+      $scope.img = './assets/_MG_' + OPERATOR.img;
       
+
+
       /**
        * Gestion du message en cours
        */
@@ -100,6 +104,3 @@ chatApp.controller('ChatController',
       }
 
 }]);
-
-
-// ---------------- ajout d'une classe selon l'objet message.author
