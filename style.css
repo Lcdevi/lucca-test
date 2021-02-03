@@ -61,7 +61,8 @@ div.container-temp p{
 
 .msg-wrap {
     border: 1px solid gold;
-    background-color: var(--green);
+    /* background-color: var(--green); */
+    padding: 40px;
 }
 
 
@@ -123,16 +124,17 @@ div.container-temp p{
 
 .messages > div {
     border: 1px solid crimson;
-    height:200px;
+    /* height:200px; */
+    margin: 40px 0;
 }
 
 .infos-message {
-    color: white;
+    /* color: white; */
 }
 
 .text-message {
     /* width:400px; */
-    color: white;
+    /* color: white; */
 }
 
 
@@ -185,4 +187,29 @@ div.container-temp p{
 
 #input-msg button img {
     margin: 0 10px 0 0;
+}
+
+.mystyle {
+    background-color: red;
+}
+
+.Utilisateur {
+    /* background-color: var(--green); */
+    color: white;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.Opératrice {
+    /* background-color: white; */
+    color: black;
+    display: flex;
+}
+
+.text-ope {
+    background-color: white;
+}
+
+.text-user {
+    background-color: var(--green);
 }

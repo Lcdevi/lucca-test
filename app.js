@@ -9,13 +9,18 @@ chatApp.controller('ChatController',
       var USER = {
         imgLong : './assets/_MG_9359.jpg',
         img : '9359.jpg',
-        name : 'Utilisateur (moi)'
+        name : 'Utilisateur',
+        // class : 'user',
+        class : 'text-user'
       };
 
       var OPERATOR = {
         imgLong : './assets/_MG_9428.jpg',
         img : '9428.jpg',
-        name : 'Opératrice'
+        name : 'Opératrice',
+        // class : 'operatrice',
+        class: 'text-ope'
+
       }
 
       // La liste des messages
@@ -33,7 +38,8 @@ chatApp.controller('ChatController',
         if (!$scope.messageInput && size > 0){
           $scope.messageInput ={
             author: USER.name,
-            img : USER.imgLong
+            img : USER.imgLong,
+            class : USER.class
           } 
         }else if(size === 0){
           $scope.messageInput = null;
@@ -54,7 +60,8 @@ chatApp.controller('ChatController',
           $timeout(function fakeAnswer(){
             $scope.messageInput = {
               author: OPERATOR.name,
-              img : OPERATOR.imgLong
+              img : OPERATOR.imgLong,
+              class : OPERATOR.class
             };
             $http({
               method: 'GET',
@@ -82,9 +89,12 @@ chatApp.controller('ChatController',
           time: new Date(),
           message: message,
           img : './assets/_MG_'+ (me ? USER.img : OPERATOR.img),
-          me: me 
+          me: me,
+          class: me ? USER.class : OPERATOR.class
         })
       }
 
-
 }]);
+
+
+// ---------------- ajout d'une classe selon l'objet message.author

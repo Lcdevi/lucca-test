@@ -20,9 +20,9 @@
         <div class="content-page">
             <div class="messages-temp">
                 <div class="messages">
-                    <div ng-repeat="message in messages">
+                    <div class="{{message.author}}" ng-repeat="message in messages">
                         <img ng-src="{{message.img}}" height="100px" class="img-chat" ng-class="{left:message.me}">
-                        <div class="msg-wrap">
+                        <div class="msg-wrap {{message.class}}">
                             <p class="infos-message"><b>{{message.author}}</b> {{message.time | date:'yyyy-MM-dd HH:mm:ss Z'}}</p>
                             <p class="text-message">{{message.message}}</p>
                         </div>
