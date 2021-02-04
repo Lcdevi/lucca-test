@@ -224,6 +224,7 @@ h4 {
 
 .commun {
     /* border: 1px solid crimson; */
+    -moz-flex-direction: column;
     display: flex;
     flex-direction: column;
     margin: 40px 0;
@@ -234,6 +235,7 @@ h4 {
 }
 
 .text-user {
+    -moz-flex-direction: column;
     flex-direction: row-reverse;
     display: flex;
     margin: 0 0 0 80px;
@@ -275,6 +277,7 @@ h4 {
 .img-author {
     /* border: 1px solid red; */
     display: flex;
+    -moz-flex-direction: column;
     flex-direction: column;
     width: 100px;
     align-items: center;
